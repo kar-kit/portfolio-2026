@@ -29,7 +29,12 @@ export function Contact() {
                 <div key={k} className="contents">
                   <dt className="pt-0.5 font-mono text-[13px] text-ink-3">{k}</dt>
                   <dd>
-                    <a href={href}>{label}</a>
+                    <a
+                      href={href}
+                      {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    >
+                      {label}
+                    </a>
                   </dd>
                 </div>
               ))}

@@ -62,7 +62,7 @@ export async function GithubActivity() {
           </h2>
           <div className="mt-3 text-[15px] text-ink-2">
             {calendar ? "in the last 12 months at " : "Pinned work at "}
-            <a href={site.github.url} className="font-mono">
+            <a href={site.github.url} target="_blank" rel="noopener noreferrer" className="font-mono">
               github.com/{site.github.handle}
             </a>
           </div>
@@ -130,6 +130,8 @@ export async function GithubActivity() {
           <a
             key={r.name}
             href={r.url}
+            target="_blank" rel="noopener noreferrer"
+            aria-label={`${r.name} on GitHub (opens in a new tab)`}
             className="flex flex-col gap-2 rounded-card border border-line bg-surface px-[22px] py-5 text-ink hover:bg-raised hover:text-ink"
           >
             <div className="flex items-baseline justify-between gap-3">

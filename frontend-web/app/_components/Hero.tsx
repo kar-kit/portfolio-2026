@@ -8,7 +8,7 @@ function Portrait() {
     <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[62%] md:bottom-0 md:left-auto md:h-auto md:w-[58%] lg:w-[52%]">
       <Image
         src={heroPhoto}
-        alt="Joey Pang"
+        alt="Joey Pang smiling, in a black shirt"
         fill
         loading="eager"
         fetchPriority="high"
@@ -44,12 +44,12 @@ export function Hero() {
           <span className="size-2 flex-none rounded-full bg-accent" />
           <span>London or remote</span>
         </div>
-        <div className="mt-[clamp(16px,2vw,24px)] font-mono text-[clamp(52px,10vw,168px)] leading-[0.9] font-bold tracking-[-0.06em] text-ink">
+        <h1 className="mt-[clamp(16px,2vw,24px)] font-mono text-[clamp(52px,10vw,168px)] leading-[0.9] font-bold tracking-[-0.06em] text-ink">
           Joey Pang
-        </div>
-        <h1 className="mt-[clamp(20px,2.4vw,32px)] max-w-[1000px] font-mono text-[clamp(28px,4.2vw,68px)] leading-[1.02] font-bold tracking-[-0.045em] text-balance md:max-w-[52%]">
-          Small, measured increments. <span className="text-ink-2">I don&apos;t cut corners.</span>
         </h1>
+        <p className="mt-[clamp(20px,2.4vw,32px)] max-w-[1000px] font-mono text-[clamp(28px,4.2vw,68px)] leading-[1.02] font-bold tracking-[-0.045em] text-balance md:max-w-[52%]">
+          Small, measured increments. <span className="text-ink-2">I don&apos;t cut corners.</span>
+        </p>
         <div className="mt-[clamp(24px,3vw,36px)] max-w-[620px]">
           <p className="text-[clamp(17px,1.5vw,20px)] leading-normal text-pretty text-ink">
             Full-stack engineer, ready for a graduate role that ships to real users.

@@ -47,7 +47,7 @@ export function About() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-card border border-line bg-surface">
             <Image
               src={headshot}
-              alt="Portrait of Joey Pang"
+              alt="Portrait of Joey Pang wearing glasses and a black bomber jacket"
               fill
               sizes="340px"
               className="object-cover object-[50%_30%]"
@@ -55,7 +55,7 @@ export function About() {
           </div>
           <figure className="flex items-start gap-3">
             <div className="relative aspect-[4/3] flex-[0_0_112px] overflow-hidden rounded-control border border-line">
-              <Image src={podium} alt="Joey on a powerlifting podium" fill sizes="112px" className="object-cover grayscale" />
+              <Image src={podium} alt="Joey Pang on the podium at Summer Slam, British Powerlifting, July 2026" fill sizes="112px" className="object-cover grayscale" />
             </div>
             <figcaption className="text-[13px] leading-normal text-ink-3">On the podium at Summer Slam, British Powerlifting, July 2026.</figcaption>
           </figure>
