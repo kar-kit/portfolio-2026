@@ -1,3 +1,4 @@
+import { CV_HREF, hasCv } from "@/lib/cv";
 import { site } from "@/lib/site";
 import { ContactForm } from "./ContactForm";
 
@@ -6,7 +7,8 @@ export function Contact() {
     ["Email", site.email, `mailto:${site.email}`],
     ["GitHub", site.github.handle, site.github.url],
     ["LinkedIn", site.linkedin.handle, site.linkedin.url],
-  ] as const;
+    ...(hasCv ? ([["CV", "joey-pang-cv.pdf", CV_HREF]] as const) : []),
+  ];
   return (
     <section id="contact" className="relative overflow-hidden border-t border-line">
       <div aria-hidden className="numeral -right-[0.04em] -bottom-[0.12em]">

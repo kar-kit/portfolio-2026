@@ -12,10 +12,8 @@ Built, not yet deployed. Every section of the plan below exists in `frontend-web
 
 Still open before launch:
 
-- [ ] Deploy (Vercel; domain TBD) and set `GITHUB_TOKEN` for the contribution graph
-- [ ] Contact form: pick a mail provider and spam filtering (`/api/contact` is a stub that returns 501; the form falls back to showing the email)
-- [ ] CV download: add the re-exported CV PDF and restore the hero button
-- [ ] Podium photo caption: meet name and year
+- [ ] Deploy on Vercel (`joeykarkitpang.co.uk`, Root Directory `frontend-web`) with the env vars in `frontend-web/README.md`, including `GITHUB_TOKEN` for the contribution graph
+- [ ] CV download: add the phone-free CV PDF as `frontend-web/public/joey-pang-cv.pdf` (the download links appear automatically once it's there)
 - [ ] Confirm the homelab diagram's "Replication · off-box copy" box is accurate
 - [ ] Sanity: content is hardcoded for v1; `backend-sanity/` is still an empty schema
 

@@ -57,7 +57,7 @@ export function About() {
             <div className="relative aspect-[4/3] flex-[0_0_112px] overflow-hidden rounded-control border border-line">
               <Image src={podium} alt="Joey on a powerlifting podium" fill sizes="112px" className="object-cover grayscale" />
             </div>
-            <figcaption className="text-[13px] leading-normal text-ink-3">Competitive powerlifting, on the podium.</figcaption>
+            <figcaption className="text-[13px] leading-normal text-ink-3">On the podium at Summer Slam, British Powerlifting, July 2026.</figcaption>
           </figure>
         </div>
       </div>

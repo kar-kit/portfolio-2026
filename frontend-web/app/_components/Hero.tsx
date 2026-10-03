@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CV_HREF, hasCv } from "@/lib/cv";
 import heroPhoto from "@/public/images/hero/joey-hero.png";
 
 /** The real photo (no cutout), duotoned to the palette, edges faded into the page. */
@@ -63,13 +64,22 @@ export function Hero() {
             >
               Read the case studies
             </a>
-            {/* "Download CV (PDF)" from the mockup is held back until the corrected CV PDF is re-exported. */}
-            <a
-              href="#contact"
-              className="inline-flex h-12 items-center rounded-control border border-line bg-canvas px-[22px] text-[15px] font-medium text-ink hover:bg-raised hover:text-ink"
-            >
-              Get in touch
-            </a>
+            {hasCv ? (
+              <a
+                href={CV_HREF}
+                download
+                className="inline-flex h-12 items-center rounded-control border border-line bg-canvas px-[22px] text-[15px] font-medium text-ink hover:bg-raised hover:text-ink"
+              >
+                Download CV (PDF)
+              </a>
+            ) : (
+              <a
+                href="#contact"
+                className="inline-flex h-12 items-center rounded-control border border-line bg-canvas px-[22px] text-[15px] font-medium text-ink hover:bg-raised hover:text-ink"
+              >
+                Get in touch
+              </a>
+            )}
           </div>
         </div>
       </div>

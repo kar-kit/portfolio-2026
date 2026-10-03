@@ -1,25 +1,22 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { LIMITS, validateContact, type ContactErrors, type ContactFields } from "@/lib/contact";
 import { site } from "@/lib/site";
+import { Turnstile } from "./Turnstile";
 
-type Fields = { name: string; email: string; message: string };
-type Errors = Partial<Record<keyof Fields | "form", string>>;
+type Fields = ContactFields;
+type Errors = ContactErrors & { form?: string };
 
 const EMPTY: Fields = { name: "", email: "", message: "" };
-
-function validate(f: Fields): Errors {
-  const e: Errors = {};
-  if (!f.name.trim()) e.name = "Please add your name.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) e.email = "Enter a valid email address.";
-  if (f.message.trim().length < 20) e.message = "A little more detail helps (20 characters minimum).";
-  return e;
-}
+const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export function ContactForm() {
   const [form, setForm] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [token, setToken] = useState<string | null>(null);
+  const [resetSignal, setResetSignal] = useState(0);
 
   const set = (k: keyof Fields) => (ev: { target: { value: string } }) => {
     setForm((f) => ({ ...f, [k]: ev.target.value }));
@@ -28,20 +25,22 @@ export function ContactForm() {
 
   async function submit(ev: FormEvent) {
     ev.preventDefault();
-    const errs = validate(form);
+    const errs = validateContact(form);
     if (Object.keys(errs).length) return setErrors(errs);
+    if (!token) return setErrors({ form: "Please complete the verification check." });
     setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, token }),
       });
       if (!res.ok) throw new Error();
       setStatus("sent");
     } catch {
       setStatus("idle");
-      setErrors({ form: `Couldn't send that. Email me directly at ${site.email}.` });
+      setErrors({ form: `Couldn't send that. Try again, or email me directly at ${site.email}.` });
+      setResetSignal((n) => n + 1); // Turnstile tokens are single-use
     }
   }
 
@@ -61,6 +60,7 @@ export function ContactForm() {
         <button
           onClick={() => {
             setForm(EMPTY);
+            setToken(null);
             setStatus("idle");
           }}
           className="mt-5 h-10 cursor-pointer rounded-control border border-line px-4 text-sm hover:bg-raised"
@@ -104,19 +104,20 @@ export function ContactForm() {
           value={form.message}
           onChange={set("message")}
           rows={7}
-          maxLength={2000}
+          maxLength={LIMITS.message}
           placeholder="The role, team, or question"
           className={`resize-y px-3.5 py-3 leading-normal ${input(errors.message)}`}
         />
         <div className="flex justify-between gap-3">
           <span className="text-[13px] text-error">{errors.message}</span>
-          <span className="font-mono text-xs text-ink-3">{form.message.length} / 2000</span>
+          <span className="font-mono text-xs text-ink-3">{form.message.length} / {LIMITS.message}</span>
         </div>
       </label>
+      {SITE_KEY && <Turnstile siteKey={SITE_KEY} onToken={setToken} resetSignal={resetSignal} />}
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          disabled={status === "sending"}
+          disabled={status === "sending" || !token}
           className="h-12 cursor-pointer rounded-control bg-accent px-6 text-[15px] font-medium text-ink hover:bg-accent-strong disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : "Send message"}
