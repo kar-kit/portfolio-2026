@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;background:#16140F}
+body{margin:0;background:#16140F;color:#F2ECE1;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#C1272D;text-decoration:none}
+a:hover{color:#E0524A}
+::selection{background:#4A1A1A;color:#F2ECE1}
+input::placeholder,textarea::placeholder{color:#7A7060}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#16140F;color:#F2ECE1;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:10;background:#16140F;border-bottom:1px solid #332C20">
+  <div style="padding:14px clamp(20px,3.5vw,56px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px">
+    <a href="#top" style="color:#F2ECE1;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:15px;letter-spacing:-0.02em">joey_pang</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px 20px;font-family:'IBM Plex Mono',monospace;font-size:13px">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+        <a href="{{ n.href }}" style="color:{{ n.color }};padding:4px 0;border-bottom:1px solid {{ n.line }}" style-hover="color:#E0524A">{{ n.label }}</a>
+      </sc-for>
+    </nav>
+  </div>
+</header>
+
+<section id="top" data-screen-label="Hero" style="position:relative;overflow:hidden;min-height:min(92vh,980px);display:flex;flex-direction:column;background:#1A1812">
+  <div aria-label="Portrait placeholder" style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#1E1B15 0 14px,#1A1812 14px 28px)">
+    <div style="position:absolute;top:16px;right:16px;max-width:45vw;border:1px dashed #332C20;border-radius:6px;padding:8px 12px;background:#16140F;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;color:#7A7060;text-align:right">PORTRAIT: professional headshot<br>full-bleed · subject right of centre</div>
+  </div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(22,20,15,0.92) 0%, rgba(22,20,15,0.78) 38%, rgba(22,20,15,0.25) 68%, rgba(22,20,15,0) 100%);pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(0deg, rgba(22,20,15,0.95) 0%, rgba(22,20,15,0.6) 45%, rgba(22,20,15,0) 100%);pointer-events:none"></div>
+  <sc-if value="{{ heroGlow }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 15% 40%, rgba(193,39,45,0.07), rgba(193,39,45,0) 70%);pointer-events:none"></div>
+  </sc-if>
+  <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(72px,10vw,140px) clamp(20px,3.5vw,56px) clamp(40px,5vw,64px)">
+    <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#B8AD9B">
+      <span style="width:8px;height:8px;border-radius:50%;background:#C1272D;flex:none"></span>
+      <span>London or remote</span>
+    </div>
+    <div style="margin-top:clamp(16px,2vw,24px);font-family:'IBM Plex Mono',monospace;font-size:clamp(52px,10vw,168px);line-height:0.9;font-weight:700;letter-spacing:-0.06em;color:#F2ECE1">Joey Pang</div>
+    <h1 style="margin:clamp(20px,2.4vw,32px) 0 0;max-width:1000px;font-family:'IBM Plex Mono',monospace;font-size:clamp(28px,4.2vw,68px);line-height:1.02;font-weight:700;letter-spacing:-0.045em;text-wrap:balance">Small, measured increments. <span style="color:#B8AD9B">I don't cut corners.</span></h1>
+    <div style="max-width:620px;margin-top:clamp(24px,3vw,36px)">
+      <p style="margin:0;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#F2ECE1;text-wrap:pretty">Full-stack engineer, ready for a graduate role that ships to real users.</p>
+      <p style="margin:10px 0 0;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#B8AD9B">BSc Computer Science · First Class Honours · Brunel University London, 2026</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+        <a href="#work" style="display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:6px;background:#C1272D;color:#F2ECE1;font-weight:500;font-size:15px" style-hover="background:#E0524A;color:#F2ECE1">Read the case studies</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:6px;border:1px solid #332C20;background:#16140F;color:#F2ECE1;font-weight:500;font-size:15px" style-hover="background:#262218;color:#F2ECE1">Download CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;border-top:1px solid #332C20;background:rgba(22,20,15,0.92);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))">
+    <div style="padding:24px clamp(20px,3.5vw,56px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(32px,3.6vw,52px);font-weight:700;letter-spacing:-0.04em;line-height:1.1">1,188</div>
+      <div style="font-size:14px;color:#B8AD9B">automated tests · SticksNBoulders</div>
+    </div>
+    
+    <div style="padding:24px clamp(20px,3.5vw,56px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(32px,3.6vw,52px);font-weight:700;letter-spacing:-0.04em;line-height:1.1">5</div>
+      <div style="font-size:14px;color:#B8AD9B">active client engagements · WebSprint</div>
+    </div>
+  </div>
+</section>
+
+<section id="about" data-screen-label="About" style="position:relative;overflow:hidden;border-top:1px solid #332C20">
+  <div aria-hidden="true" style="position:absolute;top:-0.08em;right:-0.04em;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(180px,30vw,440px);line-height:0.8;letter-spacing:-0.08em;color:rgba(242,236,225,0.04);pointer-events:none;user-select:none">01</div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,3.5vw,56px);display:flex;flex-wrap:wrap;gap:48px clamp(40px,6vw,96px);align-items:flex-start">
+    <div style="flex:1 1 440px;min-width:0;max-width:680px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D;margin-bottom:20px">About</div>
+      <p style="margin:0;font-size:clamp(22px,2.2vw,28px);line-height:1.4;font-weight:500;letter-spacing:-0.01em;text-wrap:pretty">I build systems other people rely on, because the work gets interesting once someone else's day depends on it running correctly.</p>
+      <p style="margin:28px 0 0;color:#B8AD9B;text-wrap:pretty">Most of what I've shipped has had a real user on the other end: gym members booking sessions, small-business clients taking orders, a pilot group trusting an assistant with their notes. That has shaped how I work. Tests come before features, infrastructure stays boring enough that I understand it end to end, and AI tooling is treated as a collaborator whose output gets checked rather than trusted.</p>
+      <p style="margin:16px 0 0;color:#B8AD9B;text-wrap:pretty">Outside of code I compete in powerlifting, a sport of small, measured increments logged over months. It's roughly how I think about engineering progress too.</p>
+      <dl style="margin:36px 0 0;display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr);gap:12px 20px;font-size:15px;border-top:1px solid #332C20;padding-top:20px">
+        <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">Degree</dt>
+        <dd style="margin:0">BSc Computer Science, First Class Honours</dd>
+        <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">University</dt>
+        <dd style="margin:0">Brunel University London, 2026</dd>
+        <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">Based</dt>
+        <dd style="margin:0">London, UK</dd>
+        <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">Looking for</dt>
+        <dd style="margin:0">Graduate / junior software engineer roles</dd>
+      </dl>
+    </div>
+    <div style="flex:0 1 340px;min-width:240px;display:flex;flex-direction:column;gap:16px;margin-top:clamp(0px,6vw,96px)">
+      <div style="aspect-ratio:4/5;border:1px dashed #332C20;border-radius:10px;background:repeating-linear-gradient(135deg,#1E1B15 0 10px,#1A1812 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7A7060">PORTRAIT<br>professional headshot · 4:5</div>
+      <figure style="margin:0;display:flex;gap:12px;align-items:flex-start">
+        <div style="flex:0 0 112px;aspect-ratio:4/3;border:1px dashed #332C20;border-radius:6px;background:repeating-linear-gradient(135deg,#1E1B15 0 8px,#1A1812 8px 16px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#7A7060;text-align:center">PODIUM<br>photo</div>
+        <figcaption style="font-size:13px;line-height:1.5;color:#7A7060">Competitive powerlifting, on the podium. Meet name and year to add.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="work" data-screen-label="Case studies" style="position:relative;overflow:hidden;border-top:1px solid #332C20">
+  <div aria-hidden="true" style="position:absolute;top:-0.06em;left:-0.06em;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(180px,30vw,440px);line-height:0.8;letter-spacing:-0.08em;color:rgba(242,236,225,0.04);pointer-events:none;user-select:none">02</div>
+  <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,3.5vw,56px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 48px;padding-left:clamp(0px,14vw,200px)">
+      <div style="max-width:640px">
+        <h2 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:clamp(34px,5vw,72px);line-height:1;font-weight:700;letter-spacing:-0.045em">Three case studies</h2>
+        <p style="margin:16px 0 0;color:#B8AD9B;text-wrap:pretty">Each one covers the problem, how AI tooling was used and checked, the architectural decision and what it replaced, and a measured result.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px 20px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060">
+        <span><span style="color:#C1272D;font-weight:700">C</span> Context</span>
+        <span><span style="color:#C1272D;font-weight:700">A</span> AI workflow</span>
+        <span><span style="color:#C1272D;font-weight:700">S</span> System architecture</span>
+        <span><span style="color:#C1272D;font-weight:700">E</span> Evidence</span>
+      </div>
+    </div>
+
+    <article style="background:#1E1B15;border:1px solid #332C20;border-radius:10px;overflow:hidden">
+      <div style="padding:clamp(28px,4vw,56px);display:flex;flex-wrap:wrap;gap:40px 64px;align-items:flex-end;justify-content:space-between">
+        <div style="flex:1 1 440px;min-width:0">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D">01 · Client delivery · self-hosted infra</div>
+          <h3 style="margin:16px 0 0;font-family:'IBM Plex Mono',monospace;font-size:clamp(34px,5.6vw,84px);line-height:0.98;font-weight:700;letter-spacing:-0.05em;overflow-wrap:anywhere">WebSprint</h3>
+          <p style="margin:20px 0 0;color:#B8AD9B;font-size:18px;max-width:560px;text-wrap:pretty">Freelance practice delivering full-stack sites and booking systems for small businesses, hosted on infrastructure I run and maintain.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AD9B"><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Next.js</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Sanity</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Vercel</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Proxmox</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Cloudflare Tunnel</span></div>
+        </div>
+        <div style="flex:0 1 auto;font-family:'IBM Plex Mono',monospace">
+          <div style="font-size:clamp(64px,10vw,152px);line-height:0.9;font-weight:700;letter-spacing:-0.06em">5</div>
+          <div style="margin-top:10px;font-size:13px;color:#7A7060;text-align:right">active client engagements</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:1px;background:#332C20;border-top:1px solid #332C20">
+        <div style="background:#1E1B15;padding:28px clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:0px"><span style="color:#C1272D;font-weight:700">C</span>  Context</div><p style="margin:0;text-wrap:pretty">Founded early 2024, initially built for early-stage founders who needed a technical partner instead of managing freelancers or hiring a CTO. The market focus evolved over time: 2024 MVP builds for founders, then fixed-fee website builds with Sanity CMS and a monthly retainer for small businesses and trades, then in 2026 a productised offering for course sellers and photo/video studios bundling an AI assistant to replace the separate subscriptions they'd otherwise pay for.</p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">The through-line: owner-operators with no in-house technical capacity who need someone else to fully own the technical side.</p></div>
+        <div style="background:#1E1B15;padding:28px clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:0px"><span style="color:#C1272D;font-weight:700">A</span>  AI workflow</div><p style="margin:0;text-wrap:pretty">An AI-generated design mockup gets turned into a developer feature spec by an AI agent, which I then review.</p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">On a recent storefront build, that review caught a privacy error (a client's private legal name used across the site instead of the name she uses publicly), a wrong brand-name spelling carried into the domain and metadata, a missing page that had to be added to scope, and a feature that got cut because it didn't serve the client's actual goal. For outreach specifically, AI drafts every message but a human sends each one by hand.</p></div>
+        <div style="background:#1E1B15;padding:28px clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:0px"><span style="color:#C1272D;font-weight:700">S</span>  Architecture</div><p style="margin:0;text-wrap:pretty">Client sites deploy on Vercel with Sanity as the CMS. Self-hosted infrastructure exists separately, purely for AI inference: a homelab running Proxmox, with one VM dedicated to a locally-hosted LLM behind a passed-through GPU, reached via a Cloudflare Tunnel.</p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">One shared model serves every client, told apart by system prompt and client-specific data, not separate infrastructure per client. Self-hosting exists because it removes per-token API costs, which is what makes a low monthly retainer with a bundled AI assistant actually profitable.</p></div>
+        <div style="background:#1A1812;padding:28px clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:4px"><span style="color:#C1272D;font-weight:700">E</span>  Evidence</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:18px 24px;font-family:'IBM Plex Mono',monospace"><div><div style="font-size:30px;color:#C1272D;font-weight:700;letter-spacing:-0.03em;line-height:1.15">5</div><div style="font-size:12px;color:#7A7060;margin-top:2px">active client engagements</div></div><div><div style="font-size:30px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">14 mo</div><div style="font-size:12px;color:#7A7060;margin-top:2px">average retention · longest 23</div></div><div><div style="font-size:30px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">~1.6 wks</div><div style="font-size:12px;color:#7A7060;margin-top:2px">average build time per site</div></div></div></div>
+      </div>
+    </article>
+
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,2.4vw,32px);align-items:flex-start">
+      <article style="flex:1.45 1 380px;min-width:0;background:#1E1B15;border:1px solid #332C20;border-radius:10px;overflow:hidden">
+        <div style="padding:clamp(24px,3vw,36px)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D">02 · AI engineering · research project</div>
+          <h3 style="margin:12px 0 0;font-family:'IBM Plex Mono',monospace;font-size:clamp(30px,3.6vw,48px);line-height:1;font-weight:700;letter-spacing:-0.045em">MemoAI</h3>
+          <p style="margin:14px 0 0;color:#B8AD9B;text-wrap:pretty">A final-year research project testing whether LLMs can lower the barrier to spaced-repetition study tools.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AD9B"><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Python</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">FastAPI</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Ollama</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">pgvector</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Next.js</span></div>
+        </div>
+        <div style="border-top:1px solid #332C20;padding:22px clamp(24px,3vw,36px);font-size:15px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:8px"><span style="color:#C1272D;font-weight:700">C</span>  Context</div><div style="display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Formally titled <span style="color:#B8AD9B">“Investigating How LLMs Can Reduce the Perceived Effort of Utilising Online Spaced-Repetition Tools to Lower the Barrier for Adoption Among University Students.”</span></p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">Spaced repetition and active recall are proven to work, but adoption is low specifically because of the perceived effort of manually creating and maintaining flashcards, not disbelief in the method. Existing tools (Anki, Brainscape, Quizlet) require manual creation or CSV import, which just relocates the effort, and their AI features are paywalled and only refine existing cards rather than generate from raw lecture material.</p></div></div>
+        <div style="border-top:1px solid #332C20;padding:22px clamp(24px,3vw,36px);font-size:15px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:8px"><span style="color:#C1272D;font-weight:700">A</span>  AI workflow</div><div style="display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">The backend mediates every LLM call. The frontend never talks to the model directly, only structured data crosses that boundary, tightening prompting and shrinking the hallucination surface.</p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">An explicit 80/20 rule governs the design: the model completes about 80% of flashcard-deck generation, the remaining 20% is mandatory human verification before anything saves. Generated content lands in temporary draft entities, never the real saved data directly, so a hallucination corrupts a draft, never real study material. Full automation was considered and rejected for exactly this reason.</p></div></div>
+        <div style="border-top:1px solid #332C20;padding:22px clamp(24px,3vw,36px);font-size:15px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:8px"><span style="color:#C1272D;font-weight:700">S</span>  Architecture</div><div style="display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">A single consolidated backend service rather than microservices: a deliberate trade-off for a solo dev on a fixed academic deadline. Web-first frontend.</p></div></div>
+        <figure style="margin:0;border-top:1px solid #332C20;padding:28px clamp(24px,3vw,36px);display:flex;gap:16px">
+          <div aria-hidden="true" style="font-family:'IBM Plex Mono',monospace;font-size:56px;line-height:0.8;font-weight:700;color:#C1272D;flex:none">“</div>
+          <blockquote style="margin:0;font-size:clamp(17px,1.5vw,20px);line-height:1.5;font-weight:500;letter-spacing:-0.01em;text-wrap:pretty">AI in education got framed as a cheating problem the moment it showed up in schools, and not enough people asked the opposite question: could it actually help people study? The same argument already settled in software engineering: AI didn't replace developers, it became a tool they use.</blockquote>
+        </figure>
+        <div style="border-top:1px solid #332C20;background:#1A1812;padding:22px clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:0px"><span style="color:#C1272D;font-weight:700">E</span>  Evidence</div>
+          <p style="margin:0;font-size:15px;color:#B8AD9B;text-wrap:pretty">A real, ethics-approved study with a counterbalanced design where participants did both manual and AI-assisted flashcard creation in alternating order to cancel out fatigue and order effects.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:18px 24px;font-family:'IBM Plex Mono',monospace"><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">12</div><div style="font-size:12px;color:#7A7060;margin-top:2px">recruited students</div></div><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">100%</div><div style="font-size:12px;color:#7A7060;margin-top:2px">survey completion</div></div><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">12 / 12</div><div style="font-size:12px;color:#7A7060;margin-top:2px">“strongly agree” AI generation would make them more likely to use spaced repetition regularly</div></div></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr));gap:18px 24px;font-family:'IBM Plex Mono',monospace"><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">3.72<span style="font-size:15px;color:#7A7060"> /5</span></div><div style="font-size:12px;color:#7A7060;margin-top:2px">manual creation effort</div></div><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">4.54<span style="font-size:15px;color:#7A7060"> /5</span></div><div style="font-size:12px;color:#7A7060;margin-top:2px">AI-assisted effort reduction</div></div><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">4.38<span style="font-size:15px;color:#7A7060"> /5</span></div><div style="font-size:12px;color:#7A7060;margin-top:2px">review usability</div></div><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">4.71<span style="font-size:15px;color:#7A7060"> /5</span></div><div style="font-size:12px;color:#7A7060;margin-top:2px">perceived effort &amp; adoption</div></div></div>
+          <p style="margin:0;font-size:14px;color:#B8AD9B;text-wrap:pretty;border-top:1px solid #332C20;padding-top:14px"><span style="color:#F2ECE1">Limit:</span> No usage beyond the study: the self-hosted inference stack (RTX 4060, 8GB VRAM) fell back to CPU past around 4 concurrent users, a real capacity ceiling.</p>
+        </div>
+      </article>
+
+      <article style="flex:1 1 300px;min-width:0;background:#1E1B15;border:1px solid #332C20;border-radius:10px;overflow:hidden;margin-top:clamp(0px,5vw,72px)">
+        <div style="padding:clamp(24px,3vw,32px)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D">03 · Full-stack system · testing discipline</div>
+          <h3 style="margin:12px 0 0;font-family:'IBM Plex Mono',monospace;font-size:clamp(26px,2.8vw,40px);line-height:1;font-weight:700;letter-spacing:-0.045em;overflow-wrap:anywhere">SticksNBoulders</h3>
+          <p style="margin:14px 0 0;color:#B8AD9B;text-wrap:pretty">A powerlifting coaching platform replacing RTS, the industry-standard tool most coaches use and most hate.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AD9B"><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Next.js</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">React</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">TypeScript</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Vitest</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Appwrite</span></div>
+        </div>
+        <div style="border-top:1px solid #332C20;background:#1A1812;padding:20px clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:0px"><span style="color:#C1272D;font-weight:700">E</span>  Evidence</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));gap:18px 24px;font-family:'IBM Plex Mono',monospace"><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">1,188</div><div style="font-size:12px;color:#7A7060;margin-top:2px">automated tests</div></div><div><div style="font-size:26px;font-weight:700;letter-spacing:-0.03em;line-height:1.15">2</div><div style="font-size:12px;color:#7A7060;margin-top:2px">real users today · athlete + coach</div></div></div>
+          <p style="margin:0;font-size:14px;color:#B8AD9B;text-wrap:pretty">Real users today: me and my actual coach. Near-term, his other five athletes; by end of year, hopefully three more coaches. Small number, but both current users are the actual target user. 1,188 automated tests is the clearest quantified evidence.</p>
+        </div>
+        <div style="border-top:1px solid #332C20;padding:22px clamp(24px,3vw,36px);font-size:15px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:8px"><span style="color:#C1272D;font-weight:700">C</span>  Context</div><div style="display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Most powerlifting coaches use RTS (Reactive Training Systems), priced for high-volume coaching businesses, so beginner coaches and athletes end up sharing accounts.</p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">Before this existed, the athlete-side workflow was: get a program from RTS, log actual sets in a separate app (Strong, better mobile UI), manually send the coach videos and RPE notes over WhatsApp because RTS can't attach media to a set, then separately screenshot the workout into ChatGPT to estimate calories before logging it in Cronometer. Five tools for one training session. On the coaching side, custom exercise names break RTS's UI and have to be retyped in full every time. My own coach was ready to go back to Excel rather than keep paying for it.</p></div></div>
+        <div style="border-top:1px solid #332C20;padding:22px clamp(24px,3vw,36px);font-size:15px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:8px"><span style="color:#C1272D;font-weight:700">A</span>  AI workflow</div><div style="display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">I don't vibe code. AI's job here is running this like a real project: phasing features, sorting what can happen concurrently from what's a trivial tweak, and flagging what needs my coach's input before I build it, since he's a real coach who'll actually use this.</p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">For tests, I write the first edge-case example by hand, then have an agent extend that pattern across the rest in Vitest. I trust the model more on low-stakes, easily-checked changes; everything still goes through a PR on a dev→prod branch flow from past internships.</p></div></div>
+        <div style="border-top:1px solid #332C20;padding:22px clamp(24px,3vw,36px);font-size:15px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;margin-bottom:8px"><span style="color:#C1272D;font-weight:700">S</span>  Architecture</div><div style="display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Self-hosted Appwrite on a repurposed gaming PC, not Firebase or Appwrite Cloud.</p><p style="margin:0;color:#B8AD9B;text-wrap:pretty">I don't know yet if this sees real scale, so a hard resource ceiling forces me to notice and fix inefficient functions instead of paying for more compute. If it takes off, moving to Appwrite Cloud is a data migration, not a backend rewrite.</p></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="homelab" data-screen-label="Homelab" style="position:relative;overflow:hidden;border-top:1px solid #332C20">
+  <div aria-hidden="true" style="position:absolute;top:-0.08em;right:-0.04em;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(180px,30vw,440px);line-height:0.8;letter-spacing:-0.08em;color:rgba(242,236,225,0.04);pointer-events:none;user-select:none">03</div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,3.5vw,56px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+    <div style="max-width:760px">
+      <h2 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:clamp(34px,5vw,72px);line-height:1;font-weight:700;letter-spacing:-0.045em">Homelab</h2>
+      <p style="margin:18px 0 0;font-size:clamp(16px,1.3vw,18px);color:#B8AD9B;text-wrap:pretty">Everything self-hosted behind MemoAI and WebSprint runs on hardware I built and maintain myself: a Proxmox hypervisor, a TrueNAS storage box, and a handful of VMs and containers. It's also where most of the systems instincts above actually came from.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,2vw,24px);align-items:stretch">
+      <div style="background:#1E1B15;border:1px solid #332C20;border-radius:10px;padding:clamp(22px,2.6vw,28px);display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D">01</div>
+        <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:clamp(18px,1.6vw,21px);line-height:1.2;font-weight:700;letter-spacing:-0.03em">Right-sizing compute</h3>
+        <div aria-hidden="true" style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060"><div style="display:flex;align-items:center;gap:12px">
+          <div style="flex:1.4;display:flex;flex-direction:column;gap:6px"><div style="height:44px;border:1px solid #7A7060;border-radius:4px;display:flex;flex-direction:column;overflow:hidden"><div style="height:10px;border-bottom:1px solid #332C20;background:#262218"></div></div><span>Ubuntu VM + desktop</span></div>
+          <span style="font-size:14px">→</span>
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px"><div style="display:flex;gap:6px;height:44px;align-items:flex-end"><div style="flex:1;height:22px;border:1px solid #C1272D;border-radius:4px"></div><div style="flex:1;height:22px;border:1px solid #C1272D;border-radius:4px"></div></div><span>2 × LXC, shell only</span></div>
+        </div></div>
+        <p style="margin:0;font-size:15px;color:#B8AD9B;text-wrap:pretty">Started with a full Ubuntu VM just to give an AI agent shell access. Realized it didn't need a desktop environment, just a shell, so I replaced it with two minimal Linux containers instead.</p>
+      </div>
+      <div style="background:#1E1B15;border:1px solid #332C20;border-radius:10px;padding:clamp(22px,2.6vw,28px);display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D">02</div>
+        <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:clamp(18px,1.6vw,21px);line-height:1.2;font-weight:700;letter-spacing:-0.03em">Diagnosing a GPU contention bug</h3>
+        <div aria-hidden="true" style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060"><div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;flex-direction:column;gap:4px"><span>Before · GPU memory</span><div style="display:flex;height:16px;border:1px solid #332C20;border-radius:3px;overflow:hidden"><div style="flex:3;background:#262218;border-right:1px solid #332C20;display:flex;align-items:center;padding-left:6px;color:#B8AD9B">TTS</div><div style="flex:1;background:#4A1A1A;display:flex;align-items:center;padding-left:6px;color:#B8AD9B">LLM</div></div></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span>After · GPU memory</span><div style="display:flex;height:16px;border:1px solid #332C20;border-radius:3px;overflow:hidden"><div style="flex:1;background:#C1272D;display:flex;align-items:center;padding-left:6px;color:#F2ECE1">LLM</div></div></div>
+          <span>TTS moved to CPU</span>
+        </div></div>
+        <p style="margin:0;font-size:15px;color:#B8AD9B;text-wrap:pretty">A text-to-speech service was silently parking most of a shared GPU's memory, starving the LLM inference running alongside it down to CPU-bound at about 5 minutes per response. Moving TTS to CPU-only freed the GPU and dropped that to about 14 seconds.</p>
+        <div style="display:flex;align-items:baseline;gap:8px;font-family:'IBM Plex Mono',monospace;border-top:1px solid #332C20;padding-top:12px"><span style="font-size:15px;color:#7A7060">~5 min →</span><span style="font-size:26px;font-weight:700;letter-spacing:-0.03em">~14 s</span><span style="font-size:12px;color:#7A7060">per response</span></div>
+      </div>
+      <div style="background:#1E1B15;border:1px solid #332C20;border-radius:10px;padding:clamp(22px,2.6vw,28px);display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D">03</div>
+        <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:clamp(18px,1.6vw,21px);line-height:1.2;font-weight:700;letter-spacing:-0.03em">One tool per access pattern, not one tool for everything</h3>
+        <div aria-hidden="true" style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060"><div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;gap:8px"><span style="flex:1;border:1px solid #332C20;border-radius:4px;padding:4px 8px;color:#B8AD9B">single-writer</span><span>→</span><span style="width:26px;height:22px;border:1px solid #C1272D;border-radius:4px;flex:none"></span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:1;border:1px solid #332C20;border-radius:4px;padding:4px 8px;color:#B8AD9B">multi-writer, live</span><span>→</span><span style="width:26px;height:22px;border:1px solid #C1272D;border-radius:4px;flex:none"></span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:1;border:1px solid #332C20;border-radius:4px;padding:4px 8px;color:#B8AD9B">headless automation</span><span>→</span><span style="width:26px;height:22px;border:1px solid #C1272D;border-radius:4px;flex:none"></span></div></div></div>
+        <p style="margin:0;font-size:15px;color:#B8AD9B;text-wrap:pretty">Single-writer file access, multi-writer live collaboration, and headless automation aren't the same problem. Learned that the hard way: file sync and git's rename semantics don't mix, and one popular network file-sharing protocol can't even run chmod.</p>
+      </div>
+    </div>
+    <figure data-om-raster="" style="margin:0;background:#1E1B15;border:1px solid #332C20;border-radius:10px;overflow:hidden">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:14px clamp(20px,2.6vw,28px);border-bottom:1px solid #332C20;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7A7060">
+        <span>topology · simplified</span>
+        <span style="display:flex;flex-wrap:wrap;gap:6px 16px"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border:1px solid #C1272D;border-radius:2px"></span>GPU-bound</span><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border:1px solid #332C20;border-radius:2px"></span>CPU / storage</span></span>
+      </div>
+      <div style="padding:clamp(20px,2.6vw,28px);overflow-x:auto">
+        <div style="display:flex;align-items:stretch;gap:0;min-width:760px">
+          <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#7A7060">Consumers</div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">WebSprint sites</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">Vercel · AI assistant</div></div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">MemoAI</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">study backend</div></div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">Me, remote</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">admin</div></div>
+          </div>
+          <div aria-hidden="true" style="flex:0 0 auto;align-self:center;display:flex;align-items:center;color:#7A7060;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:0 2px"><span style="display:block;width:clamp(12px,2vw,28px);height:1px;background:#332C20"></span>→</div>
+          <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#7A7060">Edge</div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">Cloudflare Tunnel</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">public → inference</div></div>
+            <div style="flex:1"></div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">Tailscale</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">private mesh · SSH keys</div></div>
+          </div>
+          <div aria-hidden="true" style="flex:0 0 auto;align-self:center;display:flex;align-items:center;color:#7A7060;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:0 2px"><span style="display:block;width:clamp(12px,2vw,28px);height:1px;background:#332C20"></span>→</div>
+          <div style="flex:1.7 1 0;min-width:0;display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#7A7060">Proxmox hypervisor</div>
+            <div style="border:1px dashed #332C20;border-radius:6px;padding:10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;flex:1">
+              <div style="grid-column:1 / -1"><div style="border:1px solid #C1272D;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">VM · local LLM</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">GPU passed through</div></div></div>
+              <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">LXC · agent shell</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">minimal Linux</div></div>
+              <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">LXC · agent shell</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">minimal Linux</div></div>
+              <div style="grid-column:1 / -1"><div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">TTS service</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">CPU-only</div></div></div>
+            </div>
+          </div>
+          <div aria-hidden="true" style="flex:0 0 auto;align-self:center;display:flex;align-items:center;color:#7A7060;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:0 2px"><span style="display:block;width:clamp(12px,2vw,28px);height:1px;background:#332C20"></span>→</div>
+          <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#7A7060">Storage</div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">TrueNAS</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">storage box</div></div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">Snapshots</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">scheduled</div></div>
+            <div style="border:1px solid #332C20;border-radius:6px;background:#16140F;padding:10px 12px;min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#F2ECE1;overflow-wrap:anywhere">Replication</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;margin-top:2px">off-box copy</div></div>
+          </div>
+        </div>
+      </div>
+    </figure>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AD9B"><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">VM &amp; container provisioning</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Docker &amp; Docker Compose</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">SSH key-based auth</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Tailscale mesh networking</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Cloudflare Tunnels</span><span style="border:1px solid #332C20;border-radius:6px;padding:2px 8px">Storage snapshots &amp; replication</span></div>
+  </div>
+</section>
+
+<section id="github" data-screen-label="GitHub activity" style="position:relative;overflow:hidden;border-top:1px solid #332C20">
+  <div aria-hidden="true" style="position:absolute;top:-0.06em;left:-0.06em;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(180px,30vw,440px);line-height:0.8;letter-spacing:-0.08em;color:rgba(242,236,225,0.04);pointer-events:none;user-select:none">04</div>
+  <div style="position:relative;padding:clamp(72px,9vw,128px) clamp(20px,3.5vw,56px) 36px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C1272D;margin-bottom:14px">Activity · live from the GitHub API</div>
+      <h2 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:clamp(34px,5vw,72px);line-height:1;font-weight:700;letter-spacing:-0.045em">{{ totalLabel }} contributions</h2>
+      <div style="margin-top:12px;font-size:15px;color:#B8AD9B">in the last 12 months at <a href="#github" style="font-family:'IBM Plex Mono',monospace">github.com/kar-kit</a></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7A7060">
+      <span>{{ syncLabel }}</span>
+      <button onClick="{{ refresh }}" style="height:36px;padding:0 14px;border-radius:6px;border:1px solid #332C20;background:transparent;color:#B8AD9B;font-family:'IBM Plex Mono',monospace;font-size:12px;cursor:pointer" style-hover="background:#262218;color:#F2ECE1" style-focus="outline:2px solid #C1272D;outline-offset:1px">{{ refreshLabel }}</button>
+    </div>
+  </div>
+  <div style="position:relative;border-top:1px solid #332C20;border-bottom:1px solid #332C20;background:#1A1812;overflow-x:auto">
+    <div style="min-width:760px;padding:24px clamp(20px,3.5vw,56px) 20px;opacity:{{ graphOpacity }};transition:opacity .2s">
+      <div style="display:grid;grid-template-columns:repeat(53,minmax(0,1fr));column-gap:3px;height:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060">
+        <sc-for list="{{ months }}" as="m" hint-placeholder-count="12">
+          <span style="grid-column:{{ m.col }} / span 4;grid-row:1">{{ m.label }}</span>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(53,minmax(0,1fr));gap:3px">
+        <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="53">
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <sc-for list="{{ w.days }}" as="d" hint-placeholder-count="7">
+              <span title="{{ d.title }}" style="display:block;width:100%;aspect-ratio:1/1;border-radius:2px;background:{{ d.bg }}"></span>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:flex-end;align-items:center;gap:4px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060">
+        <span style="margin-right:4px">Less</span>
+        <span style="width:11px;height:11px;border-radius:2px;background:#262218"></span>
+        <span style="width:11px;height:11px;border-radius:2px;background:#4A1A1A"></span>
+        <span style="width:11px;height:11px;border-radius:2px;background:#7A2124"></span>
+        <span style="width:11px;height:11px;border-radius:2px;background:#C1272D"></span>
+        <span style="width:11px;height:11px;border-radius:2px;background:#E0524A"></span>
+        <span style="margin-left:4px">More</span>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));border-bottom:1px solid #332C20">
+    <sc-for list="{{ ghStats }}" as="s" hint-placeholder-count="3">
+      <div style="padding:20px clamp(20px,3.5vw,56px)">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;letter-spacing:-0.03em">{{ s.value }}</div>
+        <div style="font-size:13px;color:#7A7060">{{ s.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="position:relative;padding:36px clamp(20px,3.5vw,56px) clamp(72px,9vw,120px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+    <sc-for list="{{ repos }}" as="r" hint-placeholder-count="3">
+      <a href="#github" style="display:flex;flex-direction:column;gap:8px;padding:20px 22px;background:#1E1B15;border:1px solid #332C20;border-radius:10px;color:#F2ECE1" style-hover="background:#262218;color:#F2ECE1">
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;letter-spacing:-0.02em;color:#F2ECE1">{{ r.name }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7A7060;border:1px solid #332C20;border-radius:6px;padding:0 6px">Public</span>
+        </div>
+        <p style="margin:0;font-size:14px;color:#B8AD9B;flex:1;text-wrap:pretty">{{ r.desc }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7A7060">
+          <span>{{ r.lang }}</span><span>★ {{ r.stars }}</span><span>{{ r.commits }} commits</span><span>{{ r.updated }}</span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="position:relative;overflow:hidden;border-top:1px solid #332C20">
+  <div aria-hidden="true" style="position:absolute;bottom:-0.12em;right:-0.04em;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(180px,30vw,440px);line-height:0.8;letter-spacing:-0.08em;color:rgba(242,236,225,0.04);pointer-events:none;user-select:none">05</div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,3.5vw,56px) clamp(96px,12vw,160px)">
+    <h2 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:clamp(44px,9vw,136px);line-height:0.95;font-weight:700;letter-spacing:-0.055em">Get in touch</h2>
+    <div style="margin-top:clamp(40px,5vw,72px);display:flex;flex-wrap:wrap;gap:48px clamp(40px,7vw,120px);align-items:flex-start">
+      <div style="flex:1 1 260px;min-width:0;max-width:380px">
+        <p style="margin:0;color:#B8AD9B;text-wrap:pretty">For roles, interviews or questions about any of the work above. I read every message myself and reply within two working days.</p>
+        <dl style="margin:28px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 20px;font-size:15px">
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">Email</dt><dd style="margin:0"><a href="#contact">joey@joeypang.dev</a></dd>
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">GitHub</dt><dd style="margin:0"><a href="#github">kar-kit</a></dd>
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">LinkedIn</dt><dd style="margin:0"><a href="#contact">in/joey-karkit-pang</a></dd>
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7A7060;padding-top:2px">CV</dt><dd style="margin:0"><a href="#contact">joey-pang-cv-2026.pdf</a></dd>
+        </dl>
+      </div>
+      <div style="flex:2 1 420px;min-width:0;max-width:680px;margin-left:auto">
+        <sc-if value="{{ isSent }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#1E1B15;border:1px solid #332C20;border-radius:10px;padding:28px">
+            <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#F2ECE1"><span style="width:8px;height:8px;border-radius:50%;background:#C1272D"></span>Message sent</div>
+            <p style="margin:12px 0 0">Thanks, {{ firstName }}. I'll reply to {{ form.email }} within two working days.</p>
+            <button onClick="{{ reset }}" style="margin-top:20px;height:40px;padding:0 16px;border-radius:6px;border:1px solid #332C20;background:transparent;color:#F2ECE1;font-family:inherit;font-size:14px;cursor:pointer" style-hover="background:#262218">Send another</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" noValidate="{{ true }}" style="display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;flex-wrap:wrap;gap:18px">
+              <label style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AD9B">Name</span>
+                <input value="{{ form.name }}" onChange="{{ setName }}" placeholder="Your name" autoComplete="name" style="height:48px;padding:0 14px;border-radius:6px;border:1px solid {{ nameBorder }};background:#1E1B15;color:#F2ECE1;font-family:inherit;font-size:15px" style-focus="outline:2px solid #C1272D;outline-offset:1px">
+                <sc-if value="{{ errors.name }}"><span style="font-size:13px;color:#C9A227">{{ errors.name }}</span></sc-if>
+              </label>
+              <label style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AD9B">Email</span>
+                <input type="email" value="{{ form.email }}" onChange="{{ setEmail }}" placeholder="you@company.com" autoComplete="email" style="height:48px;padding:0 14px;border-radius:6px;border:1px solid {{ emailBorder }};background:#1E1B15;color:#F2ECE1;font-family:inherit;font-size:15px" style-focus="outline:2px solid #C1272D;outline-offset:1px">
+                <sc-if value="{{ errors.email }}"><span style="font-size:13px;color:#C9A227">{{ errors.email }}</span></sc-if>
+              </label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8AD9B">Message</span>
+              <textarea value="{{ form.message }}" onChange="{{ setMessage }}" rows="7" placeholder="The role, team, or question" style="padding:12px 14px;border-radius:6px;border:1px solid {{ messageBorder }};background:#1E1B15;color:#F2ECE1;font-family:inherit;font-size:15px;line-height:1.5;resize:vertical" style-focus="outline:2px solid #C1272D;outline-offset:1px"></textarea>
+              <div style="display:flex;justify-content:space-between;gap:12px">
+                <span style="font-size:13px;color:#C9A227"><sc-if value="{{ errors.message }}">{{ errors.message }}</sc-if></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7A7060">{{ charCount }}</span>
+              </div>
+            </label>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px">
+              <button type="submit" disabled="{{ isSending }}" style="height:48px;padding:0 24px;border-radius:6px;border:0;background:#C1272D;color:#F2ECE1;font-family:inherit;font-size:15px;font-weight:500;cursor:pointer" style-hover="background:#E0524A" style-focus="outline:2px solid #E0524A;outline-offset:2px">{{ submitLabel }}</button>
+              <span style="font-size:13px;color:#7A7060">No mailing list. Your details are only used to reply.</span>
+            </div>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #332C20">
+  <div style="padding:24px clamp(20px,3.5vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7A7060">
+    <span>© 2026 Joey Pang</span>
+    <span style="display:flex;align-items:center;gap:8px">Last updated: <span style="border:1px dashed #332C20;border-radius:6px;padding:1px 8px;color:#B8AD9B">[latest commit date, main branch]</span></span>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { active: 'top', form: { name: '', email: '', message: '' }, errors: {}, status: 'idle', syncing: false, syncedAt: Date.now() - 4 * 60000, extra: 0, now: Date.now() };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      let cur = 'top';
+      for (const id of ['top', 'about', 'work', 'homelab', 'github', 'contact']) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < 140) cur = id; }
+      if (cur !== this.state.active) this.setState({ active: cur });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.tick = setInterval(() => this.setState({ now: Date.now() }), 30000);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); clearInterval(this.tick); }
+
+  contributions() {
+    if (this._c) return this._c;
+    let seed = 20260922;
+    const rnd = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
+    const end = new Date(2026, 8, 22);
+    const start = new Date(end); start.setDate(end.getDate() - end.getDay() - 52 * 7);
+    const days = [];
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      const wk = d.getDay(), m = d.getMonth();
+      let p = wk === 0 || wk === 6 ? 0.45 : 0.78;
+      if (m === 4 || m === 5) p = 0.35;
+      if (m === 1 || m === 2 || m === 9 || m === 10) p += 0.12;
+      days.push({ date: new Date(d), c: rnd() < p ? Math.ceil(rnd() * rnd() * 14) : 0 });
+    }
+    this._c = days; return days;
+  }
+
+  renderVals() {
+    const s = this.state, p = this.props;
+    const nav = [['about', 'About'], ['work', 'Work'], ['homelab', 'Homelab'], ['github', 'Activity'], ['contact', 'Contact']];
+    const days = this.contributions().map((d, i, a) => i === a.length - 1 ? { ...d, c: d.c + s.extra } : d);
+    const lvl = c => c === 0 ? '#262218' : c <= 2 ? '#4A1A1A' : c <= 5 ? '#7A2124' : c <= 9 ? '#C1272D' : '#E0524A';
+    const fmt = d => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    const MN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const weeks = [], months = [];
+    for (let i = 0; i < days.length; i += 7) {
+      const w = days.slice(i, i + 7), wi = weeks.length;
+      if (w[0].date.getDate() <= 7 && wi < 50) months.push({ label: MN[w[0].date.getMonth()], col: wi + 1 });
+      weeks.push({ days: w.map(d => ({ bg: lvl(d.c), title: `${d.c} contribution${d.c === 1 ? '' : 's'} on ${fmt(d.date)}` })) });
+    }
+    const total = days.reduce((a, d) => a + d.c, 0);
+    let longest = 0, run = 0;
+    days.forEach(d => { run = d.c ? run + 1 : 0; longest = Math.max(longest, run); });
+    let current = 0; for (let i = days.length - 1; i >= 0 && days[i].c; i--) current++;
+    const mins = Math.max(0, Math.round((s.now - s.syncedAt) / 60000));
+    const f = s.form, e = s.errors;
+    const upd = k => ev => { const v = ev.target.value; this.setState(st => ({ form: { ...st.form, [k]: v }, errors: { ...st.errors, [k]: undefined } })); };
+    return {
+      heroGlow: p.heroGlow ?? true,
+      navItems: nav.map(([id, label]) => ({ href: '#' + id, label, color: s.active === id ? '#C1272D' : '#B8AD9B', line: s.active === id ? '#C1272D' : 'transparent' })),
+      weeks, months,
+      totalLabel: total.toLocaleString('en-GB'),
+      ghStats: [
+        { value: days.filter(d => d.c).length, label: 'active days' },
+        { value: longest + ' d', label: 'longest streak' },
+        { value: current + ' d', label: 'current streak' },
+      ],
+      syncLabel: s.syncing ? 'Fetching from GitHub API…' : `Synced ${mins === 0 ? 'just now' : mins + ' min ago'}`,
+      refreshLabel: s.syncing ? 'Syncing' : 'Refresh',
+      graphOpacity: s.syncing ? 0.4 : 1,
+      refresh: () => { if (s.syncing) return; this.setState({ syncing: true }); setTimeout(() => this.setState(st => ({ syncing: false, syncedAt: Date.now(), now: Date.now(), extra: st.extra + 1 })), 900); },
+      repos: [
+        { name: 'SticksNBoulders', desc: 'Booking and route-logging platform for a bouldering gym. 1,188 tests in CI.', lang: 'TypeScript', stars: 24, commits: 812, updated: 'Updated 2 days ago' },
+        { name: 'MemoAI', desc: 'Notes assistant with a model router and self-hosted Ollama inference.', lang: 'Python', stars: 57, commits: 436, updated: 'Updated 5 days ago' },
+        { name: 'portfolio-2026', desc: 'This site. Personal portfolio, built in public.', lang: 'TypeScript', stars: 3, commits: 64, updated: 'Updated today' },
+      ],
+      form: f, errors: e,
+      setName: upd('name'), setEmail: upd('email'), setMessage: upd('message'),
+      nameBorder: e.name ? '#C9A227' : '#332C20', emailBorder: e.email ? '#C9A227' : '#332C20', messageBorder: e.message ? '#C9A227' : '#332C20',
+      charCount: `${f.message.length} / 2000`,
+      isSending: s.status === 'sending',
+      submitLabel: s.status === 'sending' ? 'Sending…' : 'Send message',
+      isSent: s.status === 'sent', notSent: s.status !== 'sent',
+      firstName: f.name.trim().split(' ')[0],
+      submit: ev => {
+        ev.preventDefault();
+        const errs = {};
+        if (!f.name.trim()) errs.name = 'Please add your name.';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) errs.email = 'Enter a valid email address.';
+        if (f.message.trim().length < 20) errs.message = 'A little more detail helps (20 characters minimum).';
+        if (Object.keys(errs).length) return this.setState({ errors: errs });
+        this.setState({ status: 'sending', errors: {} });
+        setTimeout(() => this.setState({ status: 'sent' }), 1100);
+      },
+      reset: () => this.setState({ status: 'idle', form: { name: '', email: '', message: '' } }),
+    };
+  }
+}
+</script>
+</body>
+</html>
