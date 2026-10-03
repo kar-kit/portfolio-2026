@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Tokens mirror DESIGN.md — change a value there first, with its rationale. */
+@theme {
+  --color-canvas: #16140f;
+  --color-sunken: #1a1812;
+  --color-surface: #1e1b15;
+  --color-raised: #262218;
+  --color-line: #332c20;
+  --color-ink: #f2ece1;
+  --color-ink-2: #b8ad9b;
+  --color-ink-3: #7a7060;
+  --color-accent: #c1272d;
+  --color-accent-strong: #e0524a;
+  --color-accent-muted: #4a1a1a;
+  --color-error: #c9a227;
+
+  --radius-control: 6px;
+  --radius-card: 10px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility gutter {
+  padding-inline: clamp(20px, 3.5vw, 56px);
+}
+
+@utility section-y {
+  padding-block: clamp(72px, 9vw, 128px);
+}
+
+/* Oversized low-opacity section numeral (DESIGN.md › Layout & rhythm). */
+@utility numeral {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(180px, 30vw, 440px);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  color: rgb(242 236 225 / 0.04);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* In @layer base so Tailwind utilities (text-ink etc.) can override it. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-canvas);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-accent-strong);
+  }
+
+  ::selection {
+    background: var(--color-accent-muted);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-ink-3);
+  }
 }
