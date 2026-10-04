@@ -189,7 +189,7 @@ export function Homelab() {
               <Column label="Storage">
                 <Node title="TrueNAS" sub="storage box" />
                 <Node title="Snapshots" sub="scheduled" />
-                <Node title="Replication" sub="off-box copy" />
+                <Node title="Syncthing" sub="two-way sync" />
               </Column>
             </div>
           </div>
@@ -202,7 +202,7 @@ export function Homelab() {
             "SSH key-based auth",
             "Tailscale mesh networking",
             "Cloudflare Tunnels",
-            "Storage snapshots & replication",
+            "Storage snapshots & Syncthing sync",
           ]}
         />
       </div>
