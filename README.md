@@ -1,5 +1,7 @@
 # portfolio-2026
 
+**[Live site: joeykarkitpang.co.uk](https://joeykarkitpang.co.uk)**
+
 Joey Pang's personal portfolio and case-study site, built for the 2026 post-grad software engineering job search. Not [websprint.co.uk](https://websprint.co.uk) — that's his business.
 
 **Stack** — Next.js 16 · React 19 · TypeScript · Tailwind v4 · Sanity CMS
@@ -8,11 +10,11 @@ Joey Pang's personal portfolio and case-study site, built for the 2026 post-grad
 
 ## Status
 
-Built, not yet deployed. Every section of the plan below exists in `frontend-web/` with real content; nothing is "coming soon" copy dressed up as done. Repo cards, commit counts and the contribution graph come live from the GitHub API, with no hardcoded numbers.
+Live at [joeykarkitpang.co.uk](https://joeykarkitpang.co.uk). Every section of the plan below exists in `frontend-web/` with real content; nothing is "coming soon" copy dressed up as done. Repo cards, commit counts and the contribution graph come live from the GitHub API, with no hardcoded numbers.
 
-Still open before launch:
+Launch checklist:
 
-- [ ] Deploy on Vercel (`joeykarkitpang.co.uk`, Root Directory `frontend-web`) with the env vars in `frontend-web/README.md`, including `GITHUB_TOKEN` for the contribution graph
+- [x] Deploy on Vercel (`joeykarkitpang.co.uk`, Root Directory `frontend-web`) with the env vars in `frontend-web/README.md`, including `GITHUB_TOKEN` for the contribution graph
 - [ ] CV download: add the phone-free CV PDF as `frontend-web/public/joey-pang-cv.pdf` (the download links appear automatically once it's there)
 - [ ] Confirm the homelab diagram's "Replication · off-box copy" box is accurate
 - [ ] Sanity: content is hardcoded for v1; `backend-sanity/` is still an empty schema
